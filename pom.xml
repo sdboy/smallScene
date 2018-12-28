@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.kelan</groupId>
+	<artifactId>smallscene</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>smallscene</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<junit.version>4.12</junit.version>
+    <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+    <druid.version>1.1.12</druid.version>
+    <mysql-connector-java.version>8.0.13</mysql-connector-java.version>
+    <postgresql.version>42.2.5</postgresql.version>
+    <ojdbc8.version>12.2.0.1</ojdbc8.version>
+    <ucp.version>12.2.0.1</ucp.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+    <!-- mybatis -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-spring-boot-starter.version}</version>
+    </dependency>
+    <!-- sql start -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>${ojdbc8.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>ucp</artifactId>
+      <version>${ucp.version}</version>
+    </dependency>
+    <!-- sql end -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+    <!-- test start -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- test start -->
+    <dependency>
+      <groupId>org.apache.maven.wagon</groupId>
+      <artifactId>wagon-http-shared</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+  <repositories>
+    <repository>
+      <id>maven.oracle.com</id>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <url>https://maven.oracle.com</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven.oracle.com</id>
+      <url>https://maven.oracle.com</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+</project>
