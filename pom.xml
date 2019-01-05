@@ -26,13 +26,19 @@
     <ojdbc8.version>12.2.0.1</ojdbc8.version>
     <ucp.version>12.2.0.1</ucp.version>
     <spring-boot-starter-freemarker.version>2.1.1.RELEASE</spring-boot-starter-freemarker.version>
-
+    <spring-boot-starter-log4j2.version>2.1.1.RELEASE</spring-boot-starter-log4j2.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
 		</dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -134,7 +140,17 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-    <!-- test start -->
+    <!-- test end -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
+      <version>${spring-boot-starter-log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+      <version>2.9.8</version>
+    </dependency>
 	</dependencies>
 
 	<build>
