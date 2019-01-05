@@ -51,7 +51,7 @@ spring:
       enabled: true
 
   mvc:
-    static-path-pattern: classpath:/static/
+    static-path-pattern: /static/**
 mybatis:
   typeAliasesPackage: com.kelan.smallscene.dao
   mapperLocations: classpath:mapper/*.xml
