@@ -2,6 +2,8 @@ server:
   port: 8085
   servlet:
     context-path: /
+  tomcat:
+    uri-encoding: UTF-8
 
 spring:
   profiles:
@@ -31,21 +33,25 @@ spring:
       removeAbandonedTimeout: 1800
       logAbandoned: true
 
-#  freemarker:
-#    request-context-attribute: req
-#    suffix: .html
-#    content-type: text/html
-#    enabled: true
-#    cache: false
-#    check-template-location: true
-#    template-loader-path: classpath:/templates/
-#    charset: UTF-8
-#    settings:
-#      number_format: '0.##'
+  freemarker:
+    request-context-attribute: req
+    suffix: .ftl
+    content-type: text/html
+    enabled: true
+    cache: false
+    check-template-location: true
+    template-loader-path: classpath:/templates/
+    charset: UTF-8
+    settings:
+      number_format: '0.##'
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
   mvc:
-    view:
-      prefix: /
-      suffix: .jsp
+    static-path-pattern: classpath:/static/
 mybatis:
   typeAliasesPackage: com.kelan.smallscene.dao
   mapperLocations: classpath:mapper/*.xml
