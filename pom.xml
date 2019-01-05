@@ -11,7 +11,7 @@
 	<groupId>com.kelan</groupId>
 	<artifactId>smallscene</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>smallscene</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -141,6 +141,7 @@
       <scope>test</scope>
     </dependency>
     <!-- test end -->
+    <!-- log4j2 start -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j2</artifactId>
@@ -151,6 +152,7 @@
       <artifactId>jackson-dataformat-yaml</artifactId>
       <version>2.9.8</version>
     </dependency>
+    <!-- log4j2 end -->
 	</dependencies>
 
 	<build>
