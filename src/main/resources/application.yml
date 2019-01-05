@@ -52,6 +52,29 @@ spring:
 
   mvc:
     static-path-pattern: /static/**
+  redis:
+    url:
+    timeout: 1000
+    ssl: false
+    port:
+    password:
+    host:
+    database: 0
+    cluster:
+      nodes: 6
+    cluster:
+      max-redirects: 3
+    lettuce:
+      shutdown-timeout: 100
+      pool:
+        min-idle: 0
+      pool:
+        max-wait: -1
+      pool:
+        max-idle: 8
+      pool:
+        max-active: 8
+
 mybatis:
   typeAliasesPackage: com.kelan.smallscene.dao
   mapperLocations: classpath:mapper/*.xml
