@@ -1,9 +1,18 @@
 package com.kelan.smallscene.config;
 
+import com.kelan.smallscene.listener.JmsMessageListener;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.connection.CachingConnectionFactory;
+import org.springframework.jms.listener.DefaultMessageListenerContainer;
+import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 import org.springframework.util.backoff.FixedBackOff;
+
+import javax.jms.Session;
 
 /**
  * <p></p>
@@ -13,7 +22,7 @@ import org.springframework.util.backoff.FixedBackOff;
  * @date 2019/1/5 15:49
  * @see
  */
-
+//@Configuration
 public class ActiveMQConfig {
   /**
    * mq地址
@@ -97,13 +106,13 @@ public class ActiveMQConfig {
   }
 
   @Bean
-  public FaceImageMessageListener faceImageMessageListener() {
-    return new FaceImageMessageListener();
+  public JmsMessageListener faceImageMessageListener() {
+    return new JmsMessageListener();
   }
 
   @Bean
-  public FaceMatchMessageListener faceMatchMessageListener() {
-    return new FaceMatchMessageListener();
+  public JmsMessageListener faceMatchMessageListener() {
+    return new JmsMessageListener();
   }
 
   @Bean

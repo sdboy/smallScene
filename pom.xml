@@ -31,6 +31,7 @@
     <spring-boot-starter-freemarker.version>2.1.1.RELEASE</spring-boot-starter-freemarker.version>
     <spring-boot-starter-log4j2.version>2.1.1.RELEASE</spring-boot-starter-log4j2.version>
     <spring-boot-starter-data-redis.version>2.1.1.RELEASE</spring-boot-starter-data-redis.version>
+    <spring-boot-starter-activemq.version>2.1.1.RELEASE</spring-boot-starter-activemq.version>
 	</properties>
 
 	<dependencies>
@@ -177,7 +178,29 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.8.1</version>
     </dependency>
-    <!-- tools start -->
+    <!-- tools end -->
+    <!-- activemq start -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-activemq</artifactId>
+      <version>${spring-boot-starter-activemq.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-spring</artifactId>
+      <version>5.15.8</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xbean</groupId>
+      <artifactId>xbean-spring</artifactId>
+      <version>4.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.messaginghub</groupId>
+      <artifactId>pooled-jms</artifactId>
+      <version>1.0.3</version>
+    </dependency>
+    <!-- activemq end -->
 	</dependencies>
 
 	<build>
