@@ -62,17 +62,13 @@ spring:
     database: 0
     cluster:
       nodes: 6
-    cluster:
       max-redirects: 3
     lettuce:
       shutdown-timeout: 100ms
       pool:
         min-idle: 0
-      pool:
         max-wait: -1ms
-      pool:
         max-idle: 8
-      pool:
         max-active: 8
   jms:
     pub-sub-domain: true
