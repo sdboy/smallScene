@@ -32,6 +32,7 @@
     <spring-boot-starter-log4j2.version>2.1.1.RELEASE</spring-boot-starter-log4j2.version>
     <spring-boot-starter-data-redis.version>2.1.1.RELEASE</spring-boot-starter-data-redis.version>
     <spring-boot-starter-activemq.version>2.1.1.RELEASE</spring-boot-starter-activemq.version>
+    <spring-boot-starter-websocket.version>2.1.1.RELEASE</spring-boot-starter-websocket.version>
 	</properties>
 
 	<dependencies>
@@ -201,6 +202,13 @@
       <version>1.0.3</version>
     </dependency>
     <!-- activemq end -->
+    <!-- webSocket start -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-websocket</artifactId>
+      <version>${spring-boot-starter-websocket.version}</version>
+    </dependency>
+    <!-- webSocket end -->
 	</dependencies>
 
 	<build>
