@@ -33,6 +33,7 @@
     <spring-boot-starter-data-redis.version>2.1.1.RELEASE</spring-boot-starter-data-redis.version>
     <spring-boot-starter-activemq.version>2.1.1.RELEASE</spring-boot-starter-activemq.version>
     <spring-boot-starter-websocket.version>2.1.1.RELEASE</spring-boot-starter-websocket.version>
+    <spring-boot-starter-security.verion>2.1.1.RELEASE</spring-boot-starter-security.verion>
 	</properties>
 
 	<dependencies>
@@ -46,10 +47,17 @@
         </exclusion>
       </exclusions>
 		</dependency>
+    <!-- aop start -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-aop</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.9.2</version>
+    </dependency>
+    <!-- aop start -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -235,7 +243,21 @@
       <artifactId>httpcore</artifactId>
       <version>4.4.10</version>
     </dependency>
-    <!-- http start -->
+    <!-- http end -->
+    <!-- shiro start -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-spring</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <!-- shiro end -->
+    <!-- spring security start -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+      <version>${spring-boot-starter-security.verion}</version>
+    </dependency>
+    <!-- spring security end -->
 	</dependencies>
 
 	<build>
