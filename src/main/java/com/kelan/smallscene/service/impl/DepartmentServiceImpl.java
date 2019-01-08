@@ -21,8 +21,10 @@ import org.springframework.stereotype.Service;
 public class DepartmentServiceImpl implements DepartmentService {
 
   private final static Logger logger = LoggerFactory.getLogger(DepartmentServiceImpl.class);
+
   @Autowired
   private DepartmentMapper departmentMapper;
+
   @Override
   public ServerResponse<String> addDepartment(Department department) {
     return null;
