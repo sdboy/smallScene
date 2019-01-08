@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelan.smallscene.dao.ChannelMapper">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.entity.Channel">
+    <constructor>
+      <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CHANNEL_TYPE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CHANNEL_SN" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RIGHTS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CAMERA_TYPE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CTRL_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LATITUDE" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="LONGITUDE" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="VIEW_DOMAIN" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, ID, NAME, DESC, STATUS, CHANNEL_TYPE, CHANNEL_SN, RIGHTS, CAMERA_TYPE, CTRL_ID, 
+    LATITUDE, LONGITUDE, VIEW_DOMAIN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from channel
+    where SID = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from channel
+    where SID = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kelan.smallscene.entity.Channel">
+    insert into channel (SID, ID, NAME, 
+      DESC, STATUS, CHANNEL_TYPE, 
+      CHANNEL_SN, RIGHTS, CAMERA_TYPE, 
+      CTRL_ID, LATITUDE, LONGITUDE, 
+      VIEW_DOMAIN)
+    values (#{sid,jdbcType=BIGINT}, #{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{desc,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{channelType,jdbcType=INTEGER}, 
+      #{channelSn,jdbcType=VARCHAR}, #{rights,jdbcType=VARCHAR}, #{cameraType,jdbcType=INTEGER}, 
+      #{ctrlId,jdbcType=VARCHAR}, #{latitude,jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE}, 
+      #{viewDomain,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.entity.Channel">
+    insert into channel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="desc != null">
+        DESC,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE,
+      </if>
+      <if test="channelSn != null">
+        CHANNEL_SN,
+      </if>
+      <if test="rights != null">
+        RIGHTS,
+      </if>
+      <if test="cameraType != null">
+        CAMERA_TYPE,
+      </if>
+      <if test="ctrlId != null">
+        CTRL_ID,
+      </if>
+      <if test="latitude != null">
+        LATITUDE,
+      </if>
+      <if test="longitude != null">
+        LONGITUDE,
+      </if>
+      <if test="viewDomain != null">
+        VIEW_DOMAIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="channelType != null">
+        #{channelType,jdbcType=INTEGER},
+      </if>
+      <if test="channelSn != null">
+        #{channelSn,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraType != null">
+        #{cameraType,jdbcType=INTEGER},
+      </if>
+      <if test="ctrlId != null">
+        #{ctrlId,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="viewDomain != null">
+        #{viewDomain,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.entity.Channel">
+    update channel
+    <set>
+      <if test="id != null">
+        ID = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="channelType != null">
+        CHANNEL_TYPE = #{channelType,jdbcType=INTEGER},
+      </if>
+      <if test="channelSn != null">
+        CHANNEL_SN = #{channelSn,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        RIGHTS = #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="cameraType != null">
+        CAMERA_TYPE = #{cameraType,jdbcType=INTEGER},
+      </if>
+      <if test="ctrlId != null">
+        CTRL_ID = #{ctrlId,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        LATITUDE = #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        LONGITUDE = #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="viewDomain != null">
+        VIEW_DOMAIN = #{viewDomain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.entity.Channel">
+    update channel
+    set ID = #{id,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      DESC = #{desc,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      CHANNEL_TYPE = #{channelType,jdbcType=INTEGER},
+      CHANNEL_SN = #{channelSn,jdbcType=VARCHAR},
+      RIGHTS = #{rights,jdbcType=VARCHAR},
+      CAMERA_TYPE = #{cameraType,jdbcType=INTEGER},
+      CTRL_ID = #{ctrlId,jdbcType=VARCHAR},
+      LATITUDE = #{latitude,jdbcType=DOUBLE},
+      LONGITUDE = #{longitude,jdbcType=DOUBLE},
+      VIEW_DOMAIN = #{viewDomain,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelan.smallscene.dao.DeviceMapper">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.entity.Device">
+    <constructor>
+      <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MANUFACTURER" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="MODEL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PORT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DESC" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LOGIN_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REGID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROXY_PORT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="UNIT_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="DEVICE_CN" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEVICE_SN" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEVICE_IP" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEVICE_PORT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEV_MAINTAINER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DEV_MAINTAINER_PH" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RIGHTS" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, ID, TYPE, NAME, MANUFACTURER, MODEL, IP, PORT, USER, PASSWORD, DESC, STATUS, 
+    LOGIN_TYPE, REGID, PROXY_PORT, UNIT_NUM, DEVICE_CN, DEVICE_SN, DEVICE_IP, DEVICE_PORT, 
+    DEV_MAINTAINER, DEV_MAINTAINER_PH, RIGHTS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from device
+    where SID = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from device
+    where SID = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kelan.smallscene.entity.Device">
+    insert into device (SID, ID, TYPE, 
+      NAME, MANUFACTURER, MODEL, 
+      IP, PORT, USER, PASSWORD, 
+      DESC, STATUS, LOGIN_TYPE, 
+      REGID, PROXY_PORT, UNIT_NUM, 
+      DEVICE_CN, DEVICE_SN, DEVICE_IP, 
+      DEVICE_PORT, DEV_MAINTAINER, DEV_MAINTAINER_PH, 
+      RIGHTS)
+    values (#{sid,jdbcType=BIGINT}, #{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{manufacturer,jdbcType=INTEGER}, #{model,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{port,jdbcType=VARCHAR}, #{user,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{desc,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{loginType,jdbcType=VARCHAR}, 
+      #{regid,jdbcType=VARCHAR}, #{proxyPort,jdbcType=VARCHAR}, #{unitNum,jdbcType=INTEGER}, 
+      #{deviceCn,jdbcType=VARCHAR}, #{deviceSn,jdbcType=VARCHAR}, #{deviceIp,jdbcType=VARCHAR}, 
+      #{devicePort,jdbcType=VARCHAR}, #{devMaintainer,jdbcType=VARCHAR}, #{devMaintainerPh,jdbcType=VARCHAR}, 
+      #{rights,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.entity.Device">
+    insert into device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="manufacturer != null">
+        MANUFACTURER,
+      </if>
+      <if test="model != null">
+        MODEL,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="port != null">
+        PORT,
+      </if>
+      <if test="user != null">
+        USER,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="desc != null">
+        DESC,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="loginType != null">
+        LOGIN_TYPE,
+      </if>
+      <if test="regid != null">
+        REGID,
+      </if>
+      <if test="proxyPort != null">
+        PROXY_PORT,
+      </if>
+      <if test="unitNum != null">
+        UNIT_NUM,
+      </if>
+      <if test="deviceCn != null">
+        DEVICE_CN,
+      </if>
+      <if test="deviceSn != null">
+        DEVICE_SN,
+      </if>
+      <if test="deviceIp != null">
+        DEVICE_IP,
+      </if>
+      <if test="devicePort != null">
+        DEVICE_PORT,
+      </if>
+      <if test="devMaintainer != null">
+        DEV_MAINTAINER,
+      </if>
+      <if test="devMaintainerPh != null">
+        DEV_MAINTAINER_PH,
+      </if>
+      <if test="rights != null">
+        RIGHTS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        #{manufacturer,jdbcType=INTEGER},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="user != null">
+        #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="loginType != null">
+        #{loginType,jdbcType=VARCHAR},
+      </if>
+      <if test="regid != null">
+        #{regid,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyPort != null">
+        #{proxyPort,jdbcType=VARCHAR},
+      </if>
+      <if test="unitNum != null">
+        #{unitNum,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCn != null">
+        #{deviceCn,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceSn != null">
+        #{deviceSn,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceIp != null">
+        #{deviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePort != null">
+        #{devicePort,jdbcType=VARCHAR},
+      </if>
+      <if test="devMaintainer != null">
+        #{devMaintainer,jdbcType=VARCHAR},
+      </if>
+      <if test="devMaintainerPh != null">
+        #{devMaintainerPh,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        #{rights,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.entity.Device">
+    update device
+    <set>
+      <if test="id != null">
+        ID = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        MANUFACTURER = #{manufacturer,jdbcType=INTEGER},
+      </if>
+      <if test="model != null">
+        MODEL = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        PORT = #{port,jdbcType=VARCHAR},
+      </if>
+      <if test="user != null">
+        USER = #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        DESC = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="loginType != null">
+        LOGIN_TYPE = #{loginType,jdbcType=VARCHAR},
+      </if>
+      <if test="regid != null">
+        REGID = #{regid,jdbcType=VARCHAR},
+      </if>
+      <if test="proxyPort != null">
+        PROXY_PORT = #{proxyPort,jdbcType=VARCHAR},
+      </if>
+      <if test="unitNum != null">
+        UNIT_NUM = #{unitNum,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCn != null">
+        DEVICE_CN = #{deviceCn,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceSn != null">
+        DEVICE_SN = #{deviceSn,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceIp != null">
+        DEVICE_IP = #{deviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePort != null">
+        DEVICE_PORT = #{devicePort,jdbcType=VARCHAR},
+      </if>
+      <if test="devMaintainer != null">
+        DEV_MAINTAINER = #{devMaintainer,jdbcType=VARCHAR},
+      </if>
+      <if test="devMaintainerPh != null">
+        DEV_MAINTAINER_PH = #{devMaintainerPh,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        RIGHTS = #{rights,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.entity.Device">
+    update device
+    set ID = #{id,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      MANUFACTURER = #{manufacturer,jdbcType=INTEGER},
+      MODEL = #{model,jdbcType=VARCHAR},
+      IP = #{ip,jdbcType=VARCHAR},
+      PORT = #{port,jdbcType=VARCHAR},
+      USER = #{user,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      DESC = #{desc,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      LOGIN_TYPE = #{loginType,jdbcType=VARCHAR},
+      REGID = #{regid,jdbcType=VARCHAR},
+      PROXY_PORT = #{proxyPort,jdbcType=VARCHAR},
+      UNIT_NUM = #{unitNum,jdbcType=INTEGER},
+      DEVICE_CN = #{deviceCn,jdbcType=VARCHAR},
+      DEVICE_SN = #{deviceSn,jdbcType=VARCHAR},
+      DEVICE_IP = #{deviceIp,jdbcType=VARCHAR},
+      DEVICE_PORT = #{devicePort,jdbcType=VARCHAR},
+      DEV_MAINTAINER = #{devMaintainer,jdbcType=VARCHAR},
+      DEV_MAINTAINER_PH = #{devMaintainerPh,jdbcType=VARCHAR},
+      RIGHTS = #{rights,jdbcType=VARCHAR}
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>
