@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kelan.smallscene.dao.ChannelMapper">
-  <resultMap id="BaseResultMap" type="com.kelan.smallscene.entity.Channel">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.Channel">
     <constructor>
       <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
       <arg column="ID" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -32,7 +32,7 @@
     delete from channel
     where SID = #{sid,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.kelan.smallscene.entity.Channel">
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.Channel">
     insert into channel (SID, ID, NAME, 
       DESC, STATUS, CHANNEL_TYPE, 
       CHANNEL_SN, RIGHTS, CAMERA_TYPE, 
@@ -44,7 +44,7 @@
       #{ctrlId,jdbcType=VARCHAR}, #{latitude,jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE}, 
       #{viewDomain,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.kelan.smallscene.entity.Channel">
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.Channel">
     insert into channel
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sid != null">
@@ -129,7 +129,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.entity.Channel">
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.Channel">
     update channel
     <set>
       <if test="id != null">
@@ -171,7 +171,7 @@
     </set>
     where SID = #{sid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.entity.Channel">
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.Channel">
     update channel
     set ID = #{id,jdbcType=VARCHAR},
       NAME = #{name,jdbcType=VARCHAR},

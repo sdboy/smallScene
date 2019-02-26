@@ -1,4 +1,4 @@
-package com.kelan.smallscene.entity;
+package com.kelan.smallscene.bean;
 
 import java.util.Date;
 

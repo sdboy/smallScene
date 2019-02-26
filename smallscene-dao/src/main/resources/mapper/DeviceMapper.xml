@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kelan.smallscene.dao.DeviceMapper">
-  <resultMap id="BaseResultMap" type="com.kelan.smallscene.entity.Device">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.Device">
     <constructor>
       <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
       <arg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -43,7 +43,7 @@
     delete from device
     where SID = #{sid,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.kelan.smallscene.entity.Device">
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.Device">
     insert into device (SID, ID, TYPE, 
       NAME, MANUFACTURER, MODEL, 
       IP, PORT, USER, PASSWORD, 
@@ -61,7 +61,7 @@
       #{devicePort,jdbcType=VARCHAR}, #{devMaintainer,jdbcType=VARCHAR}, #{devMaintainerPh,jdbcType=VARCHAR}, 
       #{rights,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.kelan.smallscene.entity.Device">
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.Device">
     insert into device
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sid != null">
@@ -206,7 +206,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.entity.Device">
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.Device">
     update device
     <set>
       <if test="id != null">
@@ -278,7 +278,7 @@
     </set>
     where SID = #{sid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.entity.Device">
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.Device">
     update device
     set ID = #{id,jdbcType=INTEGER},
       TYPE = #{type,jdbcType=VARCHAR},

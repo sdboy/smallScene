@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kelan.smallscene.dao.DepartmentMapper">
-  <resultMap id="BaseResultMap" type="com.kelan.smallscene.entity.Department">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.Department">
     <constructor>
       <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
       <arg column="CODING" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from department
     where SID = #{sid,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.kelan.smallscene.entity.Department">
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.Department">
     insert into department (SID, CODING, NAME, 
       MODIFY_TIME, MAX_DEP_ID, SN
       )
@@ -32,7 +32,7 @@
       #{modifyTime,jdbcType=TIMESTAMP}, #{maxDepId,jdbcType=BIGINT}, #{sn,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.kelan.smallscene.entity.Department">
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.Department">
     insert into department
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sid != null">
@@ -75,7 +75,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.entity.Department">
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.Department">
     update department
     <set>
       <if test="coding != null">
@@ -96,7 +96,7 @@
     </set>
     where SID = #{sid,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.entity.Department">
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.Department">
     update department
     set CODING = #{coding,jdbcType=VARCHAR},
       NAME = #{name,jdbcType=VARCHAR},
