@@ -1,7 +1,9 @@
 package com.kelan.smallscene.dao;
 
-import com.kelan.smallscene.entity.Device;
+import com.kelan.smallscene.bean.Device;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface DeviceMapper {
     int deleteByPrimaryKey(Long sid);
 

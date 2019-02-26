@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelan.smallscene.dao.UnitNodeMapper">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.UnitNode">
+    <constructor>
+      <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="INDEX" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CHANNEL_NUM" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="STREAM_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUB_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TYPE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, INDEX, CHANNEL_NUM, STREAM_TYPE, SUB_TYPE, TYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from unit_node
+    where SID = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from unit_node
+    where SID = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.UnitNode">
+    insert into unit_node (SID, INDEX, CHANNEL_NUM, 
+      STREAM_TYPE, SUB_TYPE, TYPE
+      )
+    values (#{sid,jdbcType=BIGINT}, #{index,jdbcType=VARCHAR}, #{channelNum,jdbcType=INTEGER}, 
+      #{streamType,jdbcType=VARCHAR}, #{subType,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.UnitNode">
+    insert into unit_node
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="index != null">
+        INDEX,
+      </if>
+      <if test="channelNum != null">
+        CHANNEL_NUM,
+      </if>
+      <if test="streamType != null">
+        STREAM_TYPE,
+      </if>
+      <if test="subType != null">
+        SUB_TYPE,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="index != null">
+        #{index,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNum != null">
+        #{channelNum,jdbcType=INTEGER},
+      </if>
+      <if test="streamType != null">
+        #{streamType,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null">
+        #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.UnitNode">
+    update unit_node
+    <set>
+      <if test="index != null">
+        INDEX = #{index,jdbcType=VARCHAR},
+      </if>
+      <if test="channelNum != null">
+        CHANNEL_NUM = #{channelNum,jdbcType=INTEGER},
+      </if>
+      <if test="streamType != null">
+        STREAM_TYPE = #{streamType,jdbcType=VARCHAR},
+      </if>
+      <if test="subType != null">
+        SUB_TYPE = #{subType,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.UnitNode">
+    update unit_node
+    set INDEX = #{index,jdbcType=VARCHAR},
+      CHANNEL_NUM = #{channelNum,jdbcType=INTEGER},
+      STREAM_TYPE = #{streamType,jdbcType=VARCHAR},
+      SUB_TYPE = #{subType,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=INTEGER}
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>

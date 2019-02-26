@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+    "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+  <!--导入属性配置-->
+  <classPathEntry location="F:\\mvnrepo\\mysql\\mysql-connector-java\\8.0.13\\mysql-connector-java-8.0.13.jar"/>
+
+  <context id="context" targetRuntime="MyBatis3">
+    <commentGenerator>
+      <property name="suppressAllComments" value="true"/>
+      <property name="suppressDate" value="true"/>
+    </commentGenerator>
+
+    <jdbcConnection userId="root" password="123456" driverClass="com.mysql.cj.jdbc.Driver"
+                    connectionURL="jdbc:mysql://172.17.50.101:3306/camera?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"/>
+
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.kelan.smallscene.entity" targetProject="./src/main/java">
+      <property name="enableSubPackages" value="false"/>
+      <property name="constructorBased" value="true"/>
+      <property name="trimStrings" value="true"/>
+      <property name="immutable" value="false"/>
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
+      <property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+
+    <javaClientGenerator targetPackage="com.kelan.smallscene.dao" type="XMLMAPPER" targetProject="./src/main/java">
+      <property name="enableSubPackages" value="false"/>
+    </javaClientGenerator>
+
+    <table tableName="DEPARTMENT" domainObjectName="Department" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <columnOverride column="MAX_DEP_ID" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </table>
+
+    <table tableName="DEVICE" domainObjectName="Device" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </table>
+
+    <table tableName="UNIT_NODE" domainObjectName="UnitNode" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </table>
+
+    <table tableName="CHANNEL" domainObjectName="Channel" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <columnOverride column="LATITUDE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <columnOverride column="LONGITUDE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+    </table>
+
+  </context>
+</generatorConfiguration>

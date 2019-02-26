@@ -1,7 +1,9 @@
 package com.kelan.smallscene.dao;
 
-import com.kelan.smallscene.entity.UnitNode;
+import com.kelan.smallscene.bean.UnitNode;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface UnitNodeMapper {
     int deleteByPrimaryKey(Long sid);
 

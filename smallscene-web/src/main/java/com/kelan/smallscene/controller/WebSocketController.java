@@ -1,6 +1,6 @@
 package com.kelan.smallscene.controller;
 
-import com.kelan.smallscene.entity.ReceiveMessage;
+import com.kelan.smallscene.bean.ReceiveMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.handler.annotation.MessageMapping;

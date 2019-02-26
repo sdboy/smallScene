@@ -1,7 +1,7 @@
 package com.kelan.smallscene.service;
 
+import com.kelan.smallscene.bean.Department;
 import com.kelan.smallscene.common.ServerResponse;
-import com.kelan.smallscene.entity.Department;
 
 /**
  * <p></p>

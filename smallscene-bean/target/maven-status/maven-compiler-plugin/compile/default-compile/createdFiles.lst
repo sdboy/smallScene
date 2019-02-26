@@ -1,0 +1,6 @@
+com\kelan\smallscene\bean\UnitNode.class
+com\kelan\smallscene\bean\Channel.class
+com\kelan\smallscene\bean\ReceiveMessage.class
+com\kelan\smallscene\bean\Department.class
+com\kelan\smallscene\bean\Device.class
+com\kelan\smallscene\bean\ResponseMessage.class

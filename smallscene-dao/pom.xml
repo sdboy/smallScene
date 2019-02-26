@@ -11,5 +11,70 @@
 
   <artifactId>smallscene-dao</artifactId>
 
+  <properties>
+    <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+    <druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
+    <druid.version>1.1.12</druid.version>
+    <mysql-connector-java.version>8.0.13</mysql-connector-java.version>
+    <postgresql.version>42.2.5</postgresql.version>
+    <ojdbc8.version>12.2.0.1</ojdbc8.version>
+    <ucp.version>12.2.0.1</ucp.version>
+  </properties>
+
+  <dependencies>
+    <!-- mybatis -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-spring-boot-starter.version}</version>
+    </dependency>
+    <!-- sql start -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid-spring-boot-starter</artifactId>
+      <version>${druid-spring-boot-starter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>${ojdbc8.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>ucp</artifactId>
+      <version>${ucp.version}</version>
+    </dependency>
+    <!-- sql end -->
+    <dependency>
+      <groupId>com.kelan</groupId>
+      <artifactId>smallscene-bean</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-maven-plugin</artifactId>
+      <version>1.3.7</version>
+      <configuration>
+        <configurationFile>smallscene-dao/src/main/resources/generator/generatorConfig.xml</configurationFile>
+        <overwrite>true</overwrite>
+        <verbose>true</verbose>
+      </configuration>
+    </plugin>
+  </plugins>
+  </build>
 
 </project>
