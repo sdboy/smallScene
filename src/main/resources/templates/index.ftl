@@ -8,12 +8,12 @@
   <link type="text/css" rel="stylesheet" href="../static/css/main.css" />
 </head>
 <body onload="init.loadOcx();" onunload="dahua.logout();">
-<div class="dahua_ocx" id="dahuaOcx">
+  <div class="dahua_ocx" id="dahuaOcx">
 
-</div>
-<div class="control_panel" id="controlPanel">
+  </div>
+  <div class="control_panel" id="controlPanel">
 
-</div>
+  </div>
 </body>
 <script type="text/javascript" src="../static/js/lib/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../static/js/lib/dahua/dahua.js"></script>
