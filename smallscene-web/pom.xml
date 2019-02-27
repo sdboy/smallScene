@@ -77,7 +77,6 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
           <mainClass>com.kelan.smallscene.SmallsceneApplication</mainClass>
-          <layout>ZIP</layout>
         </configuration>
         <executions>
           <execution>

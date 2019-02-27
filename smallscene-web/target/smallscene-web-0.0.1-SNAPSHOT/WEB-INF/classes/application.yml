@@ -1,0 +1,73 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  profiles:
+    active: dev
+
+  freemarker:
+    request-context-attribute: req
+    suffix: .ftl
+    content-type: text/html
+    enabled: true
+    cache: false
+    check-template-location: true
+    template-loader-path: classpath:/templates/
+    charset: UTF-8
+    settings:
+      number_format: '0.##'
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+  mvc:
+    static-path-pattern: /static/**
+#  redis:
+#    url:
+#    timeout: 1000ms
+#    ssl: false
+#    port:
+#    password:
+#    host:
+#    database: 0
+#    cluster:
+#      nodes: 6
+#      max-redirects: 3
+#    lettuce:
+#      shutdown-timeout: 100ms
+#      pool:
+#        min-idle: 0
+#        max-wait: -1ms
+#        max-idle: 8
+#        max-active: 8
+  jms:
+    pub-sub-domain: true
+    listener:
+      acknowledge-mode: auto
+      concurrency: 3
+      max-concurrency: 7
+    cache:
+      enabled: true
+      session-cache-size: 5
+      producers: true
+      consumers: true
+  messages:
+    basename: i18n/Messages,i18n/Pages
+  activemq:
+    broker-url:
+    password:
+    user:
+    in-memory: false
+    close-timeout: 5s
+    pool:
+      enabled: true
+      idle-timeout: 5s
+      time-between-expiration-check: -1ms
+      max-connections: 5
+      max-sessions-per-connection: 500

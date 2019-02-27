@@ -1,8 +1,8 @@
 package com.kelan.smallscene.service.impl;
 
+import com.kelan.smallscene.bean.Department;
 import com.kelan.smallscene.common.ServerResponse;
 import com.kelan.smallscene.dao.DepartmentMapper;
-import com.kelan.smallscene.entity.Department;
 import com.kelan.smallscene.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

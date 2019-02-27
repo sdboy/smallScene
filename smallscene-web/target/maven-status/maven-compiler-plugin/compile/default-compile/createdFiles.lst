@@ -1,0 +1,5 @@
+com\kelan\smallscene\controller\WelcomeController.class
+com\kelan\smallscene\controller\WebSocketController.class
+com\kelan\smallscene\ServletInitializer.class
+com\kelan\smallscene\SmallsceneApplication.class
+com\kelan\smallscene\controller\FreeMakerController.class
