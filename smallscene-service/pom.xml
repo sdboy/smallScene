@@ -10,26 +10,26 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>smallscene-service</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>smallscene-service</name>
+
   <dependencies>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-common</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-bean</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-dao</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-utils</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

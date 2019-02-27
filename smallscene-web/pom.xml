@@ -10,9 +10,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>smallscene-web</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-
-  <name>smallscene-web Maven Webapp</name>
+  <name>smallscene-web</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -55,25 +55,39 @@
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-bean</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-service</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-common</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-utils</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
-
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>com.kelan.smallscene.SmallsceneApplication</mainClass>
+          <layout>ZIP</layout>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
