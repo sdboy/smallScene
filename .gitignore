@@ -23,6 +23,12 @@
 hs_err_pid*
 
 /target/
+/smallscene-bean/target/
+/smallscene-common/target/
+/smallscene-dao/target/
+/smallscene-service/target/
+/smallscene-utils/target/
+/smallscene-web/target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
