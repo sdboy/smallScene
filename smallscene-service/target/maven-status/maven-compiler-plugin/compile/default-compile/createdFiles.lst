@@ -1,7 +1,0 @@
-com\kelan\smallscene\listener\JmsMessageListener.class
-com\kelan\smallscene\config\RedisConfig.class
-com\kelan\smallscene\service\impl\DepartmentServiceImpl.class
-com\kelan\smallscene\jms\ConsumerTest.class
-com\kelan\smallscene\config\WebSocketConfig.class
-com\kelan\smallscene\service\DepartmentService.class
-com\kelan\smallscene\config\ActiveMQConfig.class
