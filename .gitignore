@@ -28,6 +28,7 @@ hs_err_pid*
 /smallscene-dao/target/
 /smallscene-service/target/
 /smallscene-utils/target/
+/smallscene-controller/target/
 /smallscene-web/target/
 !.mvn/wrapper/maven-wrapper.jar
 

@@ -8,6 +8,7 @@
     <module>smallscene-utils</module>
     <module>smallscene-common</module>
     <module>smallscene-service</module>
+    <module>smallscene-controller</module>
     <module>smallscene-web</module>
   </modules>
   <parent>
@@ -227,6 +228,11 @@
       <dependency>
         <groupId>com.kelan</groupId>
         <artifactId>smallscene-dao</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.kelan</groupId>
+        <artifactId>smallscene-controller</artifactId>
         <version>0.0.1-SNAPSHOT</version>
       </dependency>
       <dependency>

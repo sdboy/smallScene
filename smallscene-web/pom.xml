@@ -68,6 +68,10 @@
       <groupId>com.kelan</groupId>
       <artifactId>smallscene-utils</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.kelan</groupId>
+      <artifactId>smallscene-controller</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
