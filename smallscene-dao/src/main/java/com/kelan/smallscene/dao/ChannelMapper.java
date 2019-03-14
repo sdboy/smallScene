@@ -3,7 +3,6 @@ package com.kelan.smallscene.dao;
 import com.kelan.smallscene.bean.Channel;
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
 public interface ChannelMapper {
     int deleteByPrimaryKey(Long sid);
 

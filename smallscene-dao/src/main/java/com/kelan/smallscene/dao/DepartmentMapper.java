@@ -3,7 +3,6 @@ package com.kelan.smallscene.dao;
 import com.kelan.smallscene.bean.Department;
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
 public interface DepartmentMapper {
     int deleteByPrimaryKey(Long sid);
 

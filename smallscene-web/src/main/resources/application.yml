@@ -101,3 +101,5 @@ mybatis:
   typeAliasesPackage: com.kelan.smallscene.dao
   mapperLocations: classpath:mapper/*.xml
   configLocation: classpath:mybatis/mybatis-config.xml
+logging:
+  config: classpath:log4j2.yml
