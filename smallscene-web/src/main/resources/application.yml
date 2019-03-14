@@ -11,8 +11,8 @@ spring:
 
   datasource:
     platform: mysql
-    url: jdbc:mysql://172.17.50.101:3306/camera?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-    username: root
+    url: jdbc:mysql://198.35.47.248:3306/camera?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: vps
     password: 123456
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
