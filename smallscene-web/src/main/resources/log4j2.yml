@@ -11,7 +11,7 @@ Configuration:
         value: debug
       # 日志文件存储的位置
       - name: log.path
-        value: ${sys:user.home}
+        value: ${sys:catalina.home}
       # 项目名称
       - name: project.name
         value: camera
