@@ -12,14 +12,14 @@
       <property name="suppressDate" value="true"/>
     </commentGenerator>
 
-    <jdbcConnection userId="root" password="123456" driverClass="com.mysql.cj.jdbc.Driver"
-                    connectionURL="jdbc:mysql://172.17.50.101:3306/camera?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"/>
+    <jdbcConnection userId="vps" password="123456" driverClass="com.mysql.cj.jdbc.Driver"
+                    connectionURL="jdbc:mysql://198.35.47.248:3306/camera?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"/>
 
     <javaTypeResolver>
       <property name="forceBigDecimals" value="false"/>
     </javaTypeResolver>
 
-    <javaModelGenerator targetPackage="com.kelan.smallscene.entity" targetProject="./src/main/java">
+    <javaModelGenerator targetPackage="com.kelan.smallscene.bean" targetProject="../smallscene-bean/src/main/java">
       <property name="enableSubPackages" value="false"/>
       <property name="constructorBased" value="true"/>
       <property name="trimStrings" value="true"/>
@@ -30,35 +30,38 @@
       <property name="enableSubPackages" value="false"/>
     </sqlMapGenerator>
 
-    <javaClientGenerator targetPackage="com.kelan.smallscene.dao" type="XMLMAPPER" targetProject="./src/main/java">
+    <javaClientGenerator targetPackage="com.kelan.smallscene.dao" type="XMLMAPPER" targetProject="../smallscene-dao/src/main/java">
       <property name="enableSubPackages" value="false"/>
     </javaClientGenerator>
 
-    <table tableName="DEPARTMENT" domainObjectName="Department" enableCountByExample="false"
-           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-           selectByExampleQueryId="false">
-      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <columnOverride column="MAX_DEP_ID" jdbcType="BIGINT" javaType="java.lang.Long" />
-    </table>
-
-    <table tableName="DEVICE" domainObjectName="Device" enableCountByExample="false"
+    <table tableName="USER_TABLE" domainObjectName="User" enableCountByExample="false"
            enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false">
       <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
     </table>
 
-    <table tableName="UNIT_NODE" domainObjectName="UnitNode" enableCountByExample="false"
+    <table tableName="ROLE_TABLE" domainObjectName="Role" enableCountByExample="false"
            enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false">
       <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
     </table>
 
-    <table tableName="CHANNEL" domainObjectName="Channel" enableCountByExample="false"
+    <table tableName="PERMISSION_TABLE" domainObjectName="Permission" enableCountByExample="false"
            enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
            selectByExampleQueryId="false">
       <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <columnOverride column="LATITUDE" jdbcType="DOUBLE" javaType="java.lang.Double" />
-      <columnOverride column="LONGITUDE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+    </table>
+
+    <table tableName="USER_ROLE_TABLE" domainObjectName="UserRole" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </table>
+
+    <table tableName="ROLE_PERMISSION_TABLE" domainObjectName="RolePermission" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <columnOverride column="SID" jdbcType="BIGINT" javaType="java.lang.Long" />
     </table>
 
   </context>
