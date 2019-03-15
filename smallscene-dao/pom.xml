@@ -70,19 +70,4 @@
     </dependency>
   </dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.mybatis.generator</groupId>
-        <artifactId>mybatis-generator-maven-plugin</artifactId>
-        <version>1.3.7</version>
-        <configuration>
-          <configurationFile>smallscene-dao/src/main/resources/generator/generatorConfig.xml</configurationFile>
-          <overwrite>true</overwrite>
-          <verbose>true</verbose>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>
