@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelan.smallscene.dao.RolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.RolePermission">
+    <constructor>
+      <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="ROLE_UUID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PERMISSION_UUID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, ROLE_UUID, PERMISSION_UUID, CREATE_DATE, UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ROLE_PERMISSION_TABLE
+    where SID = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ROLE_PERMISSION_TABLE
+    where SID = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.RolePermission">
+    insert into ROLE_PERMISSION_TABLE (SID, ROLE_UUID, PERMISSION_UUID, 
+      CREATE_DATE, UPDATE_DATE)
+    values (#{sid,jdbcType=BIGINT}, #{roleUuid,jdbcType=VARCHAR}, #{permissionUuid,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.RolePermission">
+    insert into ROLE_PERMISSION_TABLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="roleUuid != null">
+        ROLE_UUID,
+      </if>
+      <if test="permissionUuid != null">
+        PERMISSION_UUID,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="roleUuid != null">
+        #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionUuid != null">
+        #{permissionUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.RolePermission">
+    update ROLE_PERMISSION_TABLE
+    <set>
+      <if test="roleUuid != null">
+        ROLE_UUID = #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionUuid != null">
+        PERMISSION_UUID = #{permissionUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.RolePermission">
+    update ROLE_PERMISSION_TABLE
+    set ROLE_UUID = #{roleUuid,jdbcType=VARCHAR},
+      PERMISSION_UUID = #{permissionUuid,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>

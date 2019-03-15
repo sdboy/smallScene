@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelan.smallscene.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.User">
+    <constructor>
+      <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="USER_ACCOUNT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USER_PWD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USER_UUID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, USER_ACCOUNT, USER_PWD, USER_UUID, CREATE_DATE, UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from USER_TABLE
+    where SID = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from USER_TABLE
+    where SID = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.User">
+    insert into USER_TABLE (SID, USER_ACCOUNT, USER_PWD, 
+      USER_UUID, CREATE_DATE, UPDATE_DATE
+      )
+    values (#{sid,jdbcType=BIGINT}, #{userAccount,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
+      #{userUuid,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.User">
+    insert into USER_TABLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="userAccount != null">
+        USER_ACCOUNT,
+      </if>
+      <if test="userPwd != null">
+        USER_PWD,
+      </if>
+      <if test="userUuid != null">
+        USER_UUID,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="userAccount != null">
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userUuid != null">
+        #{userUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.User">
+    update USER_TABLE
+    <set>
+      <if test="userAccount != null">
+        USER_ACCOUNT = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        USER_PWD = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userUuid != null">
+        USER_UUID = #{userUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.User">
+    update USER_TABLE
+    set USER_ACCOUNT = #{userAccount,jdbcType=VARCHAR},
+      USER_PWD = #{userPwd,jdbcType=VARCHAR},
+      USER_UUID = #{userUuid,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kelan.smallscene.dao.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.kelan.smallscene.bean.Role">
+    <constructor>
+      <idArg column="SID" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="ROLE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_MAN_UUID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ROLE_UUID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    SID, ROLE_NAME, CREATE_MAN_UUID, ROLE_UUID, CREATE_DATE, UPDATE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ROLE_TABLE
+    where SID = #{sid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ROLE_TABLE
+    where SID = #{sid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kelan.smallscene.bean.Role">
+    insert into ROLE_TABLE (SID, ROLE_NAME, CREATE_MAN_UUID, 
+      ROLE_UUID, CREATE_DATE, UPDATE_DATE
+      )
+    values (#{sid,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{createManUuid,jdbcType=VARCHAR}, 
+      #{roleUuid,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kelan.smallscene.bean.Role">
+    insert into ROLE_TABLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        SID,
+      </if>
+      <if test="roleName != null">
+        ROLE_NAME,
+      </if>
+      <if test="createManUuid != null">
+        CREATE_MAN_UUID,
+      </if>
+      <if test="roleUuid != null">
+        ROLE_UUID,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=BIGINT},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="createManUuid != null">
+        #{createManUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleUuid != null">
+        #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kelan.smallscene.bean.Role">
+    update ROLE_TABLE
+    <set>
+      <if test="roleName != null">
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="createManUuid != null">
+        CREATE_MAN_UUID = #{createManUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="roleUuid != null">
+        ROLE_UUID = #{roleUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kelan.smallscene.bean.Role">
+    update ROLE_TABLE
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      CREATE_MAN_UUID = #{createManUuid,jdbcType=VARCHAR},
+      ROLE_UUID = #{roleUuid,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+    where SID = #{sid,jdbcType=BIGINT}
+  </update>
+</mapper>
