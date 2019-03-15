@@ -97,6 +97,11 @@ spring:
       max-connections: 5
       max-sessions-per-connection: 500
 
+  security:
+    user:
+      name: ray
+      password: jyg170228
+
 mybatis:
   typeAliasesPackage: com.kelan.smallscene.dao
   mapperLocations: classpath:mapper/*.xml
