@@ -15,7 +15,7 @@ import javax.jms.Message;
  */
 @Component
 public class ConsumerTest {
-  @JmsListener(id = "123", destination = "topic")
+//  @JmsListener(id = "123", destination = "topic", containerFactory = "topicListenerFactory")
   public void consumer(String message) {
 
   }

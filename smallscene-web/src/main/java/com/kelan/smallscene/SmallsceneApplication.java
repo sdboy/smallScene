@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jms.annotation.EnableJms;
 
 @SpringBootApplication
-@EnableJms
+//@EnableJms
 @MapperScan(value = "com.kelan.smallscene.dao")
 public class SmallsceneApplication {
 

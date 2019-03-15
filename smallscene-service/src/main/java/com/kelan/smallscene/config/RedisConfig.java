@@ -23,8 +23,8 @@ import java.time.Duration;
  * @date 2019/1/7 22:44
  * @see
  */
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class RedisConfig {
 
   /**

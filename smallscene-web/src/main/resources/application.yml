@@ -23,7 +23,6 @@ spring:
       initialSize: 1
       maxWait: 5000
       minIdle: 10
-      maxIdle: 15
       timeBetweenEvictionRunsMillis: 60000
       minEvictableIdleTimeMillis: 300000
       testWhileIdle: true
@@ -77,6 +76,7 @@ spring:
       acknowledge-mode: auto
       concurrency: 3
       max-concurrency: 7
+      auto-startup: false
     cache:
       enabled: true
       session-cache-size: 5

@@ -101,7 +101,7 @@ Configuration:
       - name: org.mybatis
         level: INFO
     Root:
-      level: DEBUG
+      level: INFO
       AppenderRef:
         - ref: Console
         - ref: RollingFileDebug

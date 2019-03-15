@@ -7,11 +7,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
+import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 import org.springframework.util.backoff.FixedBackOff;
 
+import javax.jms.ConnectionFactory;
 import javax.jms.Session;
 
 /**
@@ -132,7 +135,7 @@ public class ActiveMQConfig {
   }
 
   @Bean
-  public FixedBackOff faceFixedBackOff() {
+  public FixedBackOff fixedBackOff() {
     FixedBackOff fixedBackOff = new FixedBackOff();
     fixedBackOff.setInterval(interval);
     fixedBackOff.setMaxAttempts(maxAttempts);
@@ -146,7 +149,7 @@ public class ActiveMQConfig {
     listenerContainer.setDestination(faceImageTopic());
     listenerContainer.setMessageListener(faceImageMessageListenerAdapter());
     listenerContainer.setPubSubDomain(Boolean.TRUE);
-    listenerContainer.setBackOff(faceFixedBackOff());
+    listenerContainer.setBackOff(fixedBackOff());
     listenerContainer.setClientId(clientId);
     listenerContainer.setSessionAcknowledgeMode(Session.AUTO_ACKNOWLEDGE);
     listenerContainer.setReceiveTimeout(receiveTimeout);
@@ -164,7 +167,7 @@ public class ActiveMQConfig {
     listenerContainer.setDestination(faceMatchTopic());
     listenerContainer.setMessageListener(faceMatchMessageListenerAdapter());
     listenerContainer.setPubSubDomain(Boolean.TRUE);
-    listenerContainer.setBackOff(faceFixedBackOff());
+    listenerContainer.setBackOff(fixedBackOff());
     listenerContainer.setClientId(clientId);
     listenerContainer.setSessionAcknowledgeMode(Session.AUTO_ACKNOWLEDGE);
     listenerContainer.setReceiveTimeout(receiveTimeout);
@@ -173,5 +176,23 @@ public class ActiveMQConfig {
       listenerContainer.setDurableSubscriptionName(durableSubscriptionName);
     }
     return listenerContainer;
+  }
+
+  @Bean
+  public JmsListenerContainerFactory<?> topicListenerFactory(ConnectionFactory connectionFactory) {
+    DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+    factory.setPubSubDomain(true);
+    factory.setConnectionFactory(connectionFactory);
+    factory.setBackOff(fixedBackOff());
+    return factory;
+  }
+
+  @Bean
+  public JmsListenerContainerFactory<?> queueListenerFactory(ConnectionFactory connectionFactory) {
+    DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+    factory.setPubSubDomain(false);
+    factory.setConnectionFactory(connectionFactory);
+    factory.setBackOff(fixedBackOff());
+    return factory;
   }
 }
