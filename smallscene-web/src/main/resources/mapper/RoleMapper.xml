@@ -105,4 +105,11 @@
       UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
     where SID = #{sid,jdbcType=BIGINT}
   </update>
+  <select id="selectByRoleUUIDList" parameterType="string" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from ROLE_TABLE where ROLE_UUID in
+    <foreach collection="list" item="roleUUID" index="i" open="(" close=")" separator=",">
+      #{roleUUID,jdbcType=VARCHAR}
+    </foreach>
+  </select>
 </mapper>

@@ -1,7 +1,7 @@
-package com.kelan.smallscene.service.impl;
+package com.kelan.smallscene.bean;
 
-import com.kelan.smallscene.bean.Role;
-import com.kelan.smallscene.bean.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +19,7 @@ import java.util.List;
  * @see
  */
 public class UserDetailsImpl implements UserDetails {
-
+  private final static Logger logger = LoggerFactory.getLogger(UserDetailsImpl.class);
   private String username;
   private String password;
   /**
@@ -72,8 +72,10 @@ public class UserDetailsImpl implements UserDetails {
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     List<GrantedAuthority> authorities = new ArrayList<>();
-    for(Role role : roles) {
-      authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+    if(roles != null && roles.size() > 0) {
+      for(Role role : roles) {
+        authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+      }
     }
     return authorities;
   }

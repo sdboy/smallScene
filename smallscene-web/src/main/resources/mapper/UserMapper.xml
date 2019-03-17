@@ -105,4 +105,8 @@
       UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
     where SID = #{sid,jdbcType=BIGINT}
   </update>
+  <select id="selectByUserAccount" parameterType="string" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from USER_TABLE where USER_ACCOUNT = #{userAccount,jdbcType=VARCHAR}
+  </select>
 </mapper>

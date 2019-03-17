@@ -92,4 +92,8 @@
       UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
     where SID = #{sid,jdbcType=BIGINT}
   </update>
+  <select id="selectByUserUUID" parameterType="string" resultType="string">
+    select ROLE_UUID
+    from USER_ROLE_TABLE where USER_UUID = #{userUUID,jdbcType=VARCHAR}
+  </select>
 </mapper>
