@@ -12,15 +12,15 @@ import org.apache.ibatis.annotations.Mapper;
  * @see
  */
 public interface DepartmentMapper {
-    int deleteByPrimaryKey(Long sid);
+  int deleteByPrimaryKey(Long sid);
 
-    int insert(Department record);
+  int insert(Department record);
 
-    int insertSelective(Department record);
+  int insertSelective(Department record);
 
-    Department selectByPrimaryKey(Long sid);
+  Department selectByPrimaryKey(Long sid);
 
-    int updateByPrimaryKeySelective(Department record);
+  int updateByPrimaryKeySelective(Department record);
 
-    int updateByPrimaryKey(Department record);
+  int updateByPrimaryKey(Department record);
 }

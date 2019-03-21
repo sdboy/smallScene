@@ -12,15 +12,15 @@ import org.apache.ibatis.annotations.Mapper;
  * @see
  */
 public interface UnitNodeMapper {
-    int deleteByPrimaryKey(Long sid);
+  int deleteByPrimaryKey(Long sid);
 
-    int insert(UnitNode record);
+  int insert(UnitNode record);
 
-    int insertSelective(UnitNode record);
+  int insertSelective(UnitNode record);
 
-    UnitNode selectByPrimaryKey(Long sid);
+  UnitNode selectByPrimaryKey(Long sid);
 
-    int updateByPrimaryKeySelective(UnitNode record);
+  int updateByPrimaryKeySelective(UnitNode record);
 
-    int updateByPrimaryKey(UnitNode record);
+  int updateByPrimaryKey(UnitNode record);
 }

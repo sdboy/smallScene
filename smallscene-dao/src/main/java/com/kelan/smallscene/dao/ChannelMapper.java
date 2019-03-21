@@ -12,15 +12,15 @@ import org.apache.ibatis.annotations.Mapper;
  * @see
  */
 public interface ChannelMapper {
-    int deleteByPrimaryKey(Long sid);
+  int deleteByPrimaryKey(Long sid);
 
-    int insert(Channel record);
+  int insert(Channel record);
 
-    int insertSelective(Channel record);
+  int insertSelective(Channel record);
 
-    Channel selectByPrimaryKey(Long sid);
+  Channel selectByPrimaryKey(Long sid);
 
-    int updateByPrimaryKeySelective(Channel record);
+  int updateByPrimaryKeySelective(Channel record);
 
-    int updateByPrimaryKey(Channel record);
+  int updateByPrimaryKey(Channel record);
 }

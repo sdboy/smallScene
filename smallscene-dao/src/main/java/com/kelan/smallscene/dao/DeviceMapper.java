@@ -11,15 +11,15 @@ import com.kelan.smallscene.bean.Device;
  * @see
  */
 public interface DeviceMapper {
-    int deleteByPrimaryKey(Long sid);
+  int deleteByPrimaryKey(Long sid);
 
-    int insert(Device record);
+  int insert(Device record);
 
-    int insertSelective(Device record);
+  int insertSelective(Device record);
 
-    Device selectByPrimaryKey(Long sid);
+  Device selectByPrimaryKey(Long sid);
 
-    int updateByPrimaryKeySelective(Device record);
+  int updateByPrimaryKeySelective(Device record);
 
-    int updateByPrimaryKey(Device record);
+  int updateByPrimaryKey(Device record);
 }
